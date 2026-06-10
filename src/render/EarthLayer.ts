@@ -7,7 +7,7 @@ varying vec3 vNormalW;
 varying vec3 vPosW;
 
 void main() {
-  vUv = vec2(1.0 - uv.x, uv.y);
+  vUv = uv;
   vNormalW = normalize(mat3(modelMatrix) * normal);
   vPosW = (modelMatrix * vec4(position, 1.0)).xyz;
   gl_Position = projectionMatrix * viewMatrix * vec4(vPosW, 1.0);
