@@ -67,12 +67,46 @@
   top: 110px;
   left: 16px;
   width: 300px;
-  padding: 14px;
+  padding: 0;
   z-index: 20;
   max-height: calc(100vh - 240px);
   overflow-y: auto;
 }
-.filter-panel h3 {
+.filter-panel.collapsed {
+  overflow: hidden;
+}
+.filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  cursor: pointer;
+  user-select: none;
+}
+.filter-header:hover { background: rgba(110, 168, 255, 0.07); border-radius: 12px; }
+.filter-header h3 {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+.filter-chevron {
+  color: var(--text-dim);
+  font-size: 18px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+.filter-chevron.up { transform: rotate(-90deg); }
+.filter-chevron.down { transform: rotate(90deg); }
+.filter-panel > :not(.filter-header) {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+.filter-panel > :last-child { padding-bottom: 14px; }
+.filter-sub {
   margin: 0 0 10px;
   font-size: 11px;
   letter-spacing: 0.2em;
